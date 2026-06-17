@@ -41,4 +41,4 @@ vite.config.timestamp-*
 
 # Temporary files
 *.tmp
-*.swp
+*.swp   
