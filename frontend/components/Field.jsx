@@ -58,65 +58,69 @@ export default function ChatBot() {
     }
   };
 
-  return (
+return (
   <div
     data-theme="valentine"
-    className="min-h-screen bg-gradient-to-br from-pink-100 via-rose-50 to-pink-200 flex flex-col"
+    className="h-dvh flex flex-col overflow-hidden bg-gradient-to-br from-pink-100 via-rose-50 to-pink-200"
   >
-    <div className="navbar bg-pink-500 text-white shadow-lg">
+    <div className="navbar bg-pink-500 text-white shadow-lg shrink-0">
       <div
-  className="mx-auto text-3xl text-white drop-shadow-lg"
-  style={{ fontFamily: "'Dancing Script', cursive" }}
->
-  My Girlfriend
-</div>
+        className="mx-auto text-3xl text-white drop-shadow-lg"
+        style={{ fontFamily: "'Dancing Script', cursive" }}
+      >
+        My Girlfriend
+      </div>
     </div>
 
-    <div className="flex-1 overflow-y-auto p-6 space-y-4 max-w-4xl mx-auto w-full">
-      {messages.map((msg, idx) => (
-        <div
-          key={idx}
-          className={`chat ${
-            msg.role === "user" ? "chat-end" : "chat-start"
-          }`}
-        >
+    <div className="flex-1 min-h-0 overflow-y-auto p-4">
+      <div className="max-w-4xl mx-auto space-y-4">
+        {messages.map((msg, idx) => (
           <div
-            className={`chat-bubble ${
-              msg.role === "user"
-                ? "bg-pink-500 text-white"
-                : "bg-white text-pink-700 border border-pink-300"
+            key={idx}
+            className={`chat ${
+              msg.role === "user" ? "chat-end" : "chat-start"
             }`}
           >
-            {msg.content}
+            <div
+              className={`chat-bubble ${
+                msg.role === "user"
+                  ? "bg-pink-500 text-white"
+                  : "bg-white text-pink-700 border border-pink-300"
+              }`}
+            >
+              {msg.content}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
-    <div className="border-t border-pink-300 bg-white/70 backdrop-blur-sm p-4">
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend text-pink-700 font-semibold">
-          💌 Send a message
-        </legend>
+    <div className="shrink-0 border-t border-pink-300 bg-white/80 backdrop-blur-sm p-3">
+      <div className="max-w-4xl mx-auto">
+        <fieldset className="fieldset">
+          <legend className="fieldset-legend text-pink-700 font-semibold">
+            💌 Send a message
+          </legend>
 
-        <div className="flex gap-3">
-          <input
-            type="text"
-            className="input flex-1 border-pink-300 focus:outline-none focus:border-pink-500"
-            placeholder="Type something sweet..."
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          />
+          <div className="flex gap-2">
+            <input
+              type="text"
+              className="input flex-1 border-pink-300 focus:outline-none focus:border-pink-500"
+              placeholder="Type something sweet..."
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+            />
 
-          <button
-            className="btn bg-pink-500 hover:bg-pink-600 text-white border-none"
-            onClick={sendMessage}
-          >
-            💕 Send
-          </button>
-        </div>
-      </fieldset>
+            <button
+              className="btn bg-pink-500 hover:bg-pink-600 text-white border-none"
+              onClick={sendMessage}
+            >
+              💕
+            </button>
+          </div>
+        </fieldset>
+      </div>
     </div>
   </div>
 );
