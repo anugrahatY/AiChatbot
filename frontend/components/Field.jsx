@@ -26,7 +26,7 @@ export default function ChatBot() {
 
     try {
       const res = await fetch(
-        "http://localhost:4000/api/v1/ai/getresponse",
+        "https://aichatbot-632m.onrender.com/api/v1/ai/getresponse",
         {
           method: "POST",
           headers: {
